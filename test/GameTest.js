@@ -41,4 +41,3 @@ describe("The Bowling Game", () => {
     rollMany(10, 12);
     expect(game.score()).toBe(300);
   })
-};
