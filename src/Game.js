@@ -11,6 +11,7 @@ BowlingGame.prototype.score = function() {
   var rollIndex = 0;
   var game = this;
 
+// This means that for every 1 frame there are 2 rolls.
   for (var frameIndex = 0; frameIndex < 10; frameIndex++) {
     if (isStrike()) {
       result += getStrikeScore();
@@ -25,12 +26,14 @@ BowlingGame.prototype.score = function() {
   }
   return result;
 
+// if pins knocked down equals 10 in this one roll, the number at that point in the array is 10
   function isStrike() {
     return game.rolls[rollIndex] === 10;
   }
 
+// to get the score for a strike, you add the 10 points for the strike, plus
   function getStrikeScore() {
-    return game.rolls[rollIndex] + game.rolls[rollIndex + 1] + game.rolls[rollIndex + 2];
+    return 10 + game.rolls[rollIndex + 1] + game.rolls[rollIndex + 2];
   }
 
   function isSpare() {
@@ -38,7 +41,7 @@ BowlingGame.prototype.score = function() {
   }
 
   function getSpareScore() {
-    return game.rolls[rollIndex] + game.rolls[rollIndex + 1] + game.rolls[rollIndex + 2];
+    return 10 + game.rolls[rollIndex + 2];
   }
 
   function getNormalScore() {
