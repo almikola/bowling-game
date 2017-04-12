@@ -42,13 +42,13 @@ describe("The Bowling Game", () => {
 // Assumes you will hit 0 pints in all rolls after the initial 3.
 // - hit 10 pins in first roll, skip second roll in 1st frame
 // - hit 7 pins in the two rolls in the next frame
-// - points should add up as (10 + 7) + 7 = 24
+// - points should add up as (10 + (3+0)) + (3+0) = 16
   it('can roll a strike', () => {
     game.roll(10);
-    game.roll(4);
+    game.roll(0);
     game.roll(3);
     rollMany(0, 16);
-    expect(game.score()).toBe(24);
+    expect(game.score()).toBe(16);
   });
 
 // Test to see whether you can hit a perfect game, where you hit 12 strikes in a row.
